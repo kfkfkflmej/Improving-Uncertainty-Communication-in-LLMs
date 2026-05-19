@@ -17,8 +17,8 @@ from trl import SFTConfig, SFTTrainer
 @hydra.main(config_path="configs", config_name="config", version_base=None)
 def main(cfg):
     logging.info(OmegaConf.to_yaml(cfg, resolve=True))
-    dataset = load_dataset(dataset_filetype, data_files=dataset_filepath)
-    model_id = model_base_model
+    dataset = load_dataset(cfg.dataset_filetype, data_files=cfg.dataset_filepath)
+    model_id = cfg.model_base_model
 
     def formatting_prompts_func(example):
         return {
@@ -64,22 +64,22 @@ def main(cfg):
 
     args = SFTConfig(
 
-        run_name=mapper_name,
-        output_dir=sft_output_dir,     # directory to save and repository id
-        num_train_epochs=sft_num_train_epochs,                    # number of training epochs
-        per_device_train_batch_size=sft_per_device_train_batch_size,            # batch size per device during training
-        gradient_accumulation_steps=sft_gradient_accumulation_steps,
-        learning_rate=sft_learning_rate,
-        bf16=sft_bf16,                                  # use bfloat16 precision
+        run_name=cfg.mapper_name,
+        output_dir=cfg.sft_output_dir,     # directory to save and repository id
+        num_train_epochs=cfg.sft_num_train_epochs,                    # number of training epochs
+        per_device_train_batch_size=cfg.sft_per_device_train_batch_size,            # batch size per device during training
+        gradient_accumulation_steps=cfg.sft_gradient_accumulation_steps,
+        learning_rate=cfg.sft_learning_rate,
+        bf16=cfg.sft_bf16,                                  # use bfloat16 precision
         dataset_text_field="",                      # need a dummy field for collator
         dataset_kwargs={"skip_prepare_dataset": True}, # important for collator
         remove_unused_columns = False,             # important for collator
-        max_length=sft_max_length,
-        packing=sft_packing,
-        warmup_steps=sft_warmup_steps,
-        gradient_checkpointing=sft_gradient_checkpointing,
-        fp16=sft_fp16,
-        seed=sft_seed,
+        max_length=cfg.sft_max_length,
+        packing=cfg.sft_packing,
+        warmup_steps=cfg.sft_warmup_steps,
+        gradient_checkpointing=cfg.sft_gradient_checkpointing,
+        fp16=cfg.sft_fp16,
+        seed=cfg.sft_seed,
     )
 
     # Create a data collator to encode text and image pairs
@@ -110,12 +110,10 @@ def main(cfg):
 
     # Start training, the model will be SAVED TO THE OUTPUT DIRECTORY
     
-    print_trainable_parameters(trainer.model)
-
     trainer.train()
 
     logging.info("Saving last checkpoint of the model")
-    trainer.save_model(sft_args.output_dir)
+    trainer.save_model(cfg.sft_args.output_dir)
 
 
 if __name__ == "__main__":
