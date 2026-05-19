@@ -43,5 +43,4 @@ for dataset in "${datasets[@]}"; do
         --ece_bins 10 \
         --output_path "evaluating_LC/outputs/LC_outputs/scores/scores.jsonl"
    
-    done
 done

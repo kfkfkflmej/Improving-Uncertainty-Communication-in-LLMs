@@ -15,7 +15,6 @@ datasets=(
 
 for dataset in "${datasets[@]}"; do
     for model in "${models[@]}"; do
-        model_name=$(basename "$model")
         data_path="evaluating_LC/datasets/${dataset}.csv"
 
         # Execution for base models (uses "vanilla")
@@ -28,7 +27,7 @@ for dataset in "${datasets[@]}"; do
 
         # Execution for base models (uses "vanilla_uncertainty")
         if [[ "$model" == google/* ]]; then
-            PYTHONPATH=lib python3 bin/linguistic_confidence.py\
+            PYTHONPATH=lib python3 bin/linguistic_confidence.py \
                 --model "$model" \
                 --data_path "$data_path" \
                 --dataset "$dataset" \
@@ -47,13 +46,13 @@ for dataset in "${datasets[@]}"; do
             else
                 lora_path="pashadohnal/gemma-3-4b-uncertain-s-t"
         fi
-        PYTHONPATH=lib python3 bin/linguistic_confidence.py\
+        PYTHONPATH=lib python3 bin/linguistic_confidence.py \
             --model "$model" \
             --data_path "$data_path" \
             --dataset "$dataset" \
             --temperature 1.0 \
-            --prompt_style "vanilla"\
-            --lora_path "$lora_path" # LoRA adapter
+            --prompt_style "vanilla" \
+            --lora_path "$lora_path"
         
     done
 done

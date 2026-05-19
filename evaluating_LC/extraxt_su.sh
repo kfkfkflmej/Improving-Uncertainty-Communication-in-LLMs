@@ -10,14 +10,13 @@ datasets=(
 
 for dataset in "${datasets[@]}"; do
     for model in "${models[@]}"; do
-        model_name=$(basename "$model")
         data_path="evaluating_LC/datasets/${dataset}.csv"
 
         PYTHONPATH=lib python3 bin/su_script.py \
             --model_name "$model" \
             --data_path "$data_path" \
             --dataset "$dataset" \
-            --temperature 1.0\
+            --temperature 1.0 \
             --sampling_num 10
     done
 done
