@@ -1,0 +1,2 @@
+CUDA_VISIBLE_DEVICES=0 python -m improve_gemma_linguistic_confidence mapper=Gemma_mapper_4B.yaml
+CUDA_VISIBLE_DEVICES=0 python -m improve_gemma_linguistic_confidence mapper=Gemma_mapper_12B.yaml
