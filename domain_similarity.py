@@ -52,14 +52,15 @@ print("Art ↔ Geography:", art_geo_similarity)
 similarity = np.array([st_art_similarity, st_geo_similarity, st_st_similarity]*2) # duplicate for both models
 domains = [ "Art", "Geography","Tech"]
 
-# Base LC #4b art geo st 12b art geo st
-calib_base = np.array([0.8051, 0.7683, 0.7809, 0.7839, 0.7642, 0.7676])
+
+# Base LC 
+calib_base = np.array([0.8051, 0.7683, 0.7809, 0.7839, 0.7642, 0.7676]) #ECE scores extracted from orur experiments
 
 # Base LC+
-calib_unc = np.array([0.7040, 0.6915, 0.7604, 0.7739, 0.7401, 0.7268])
+calib_unc = np.array([0.7040, 0.6915, 0.7604, 0.7739, 0.7401, 0.7268]) #ECE scores extracted from orur experiments
 
 # Fine-tuned model
-calib_ft = np.array([0.7620, 0.7491, 0.7827, 0.7941, 0.7475, 0.7721])
+calib_ft = np.array([0.7620, 0.7491, 0.7827, 0.7941, 0.7475, 0.7721]) #ECE scores extracted from orur experiments
 
 # Plot
 plt.figure()
@@ -104,13 +105,13 @@ similarity = np.array([st_art_similarity, st_geo_similarity, st_st_similarity]*2
 domains = [ "Art", "Geography","Tech"]
 
 # Base LC  "Art", "Geography","Tech"
-calib_base = np.array([0.1212, 0.4141, 0.4818, 0.6615, 0.4758, 0.4989])
+calib_base = np.array([0.1212, 0.4141, 0.4818, 0.6615, 0.4758, 0.4989]) #AUROC scores extracted from orur experiments
 
 # Base LC+
-calib_unc = np.array([0.6084, 0.3242, 0.6071, 0.5510, 0.6323, 0.4562])
+calib_unc = np.array([0.6084, 0.3242, 0.6071, 0.5510, 0.6323, 0.4562]) #AUROC scores extracted from orur experiments
 
 # Fine-tuned model
-calib_ft = np.array([0.4337, 0.6126, 0.4124 , 0.7010, 0.7092, 0.5010])
+calib_ft = np.array([0.4337, 0.6126, 0.4124 , 0.7010, 0.7092, 0.5010]) #AUROC scores extracted from orur experiments
 
 # Plot
 plt.figure()
