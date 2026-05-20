@@ -44,3 +44,9 @@ Make sure that the graded files are in evaluating_LC\outputs\LC_outputs\results 
 ```bash
 bash calculate_results.sh
 ```
+
+#### Generate figures
+The scores are hardcoded inside the script. If you want to see your test results, change the values inside before running the script to generate accurate plots. 
+```bash
+python domain_similarity.py
+```
