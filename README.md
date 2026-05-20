@@ -50,3 +50,8 @@ The scores are hardcoded inside the script. If you want to see your test results
 ```bash
 python domain_similarity.py
 ```
+## Our results
+![Size comparison table](./figures/size_comparison.png)
+![Domain comparison table](./figures/domain_comparison.png)
+![Domain and calibration plot](./figures/calibration_vs_domain_similarity.png)
+![Domain and discriminability plot](./figures/discriminability_vs_domain_similarity.png)
