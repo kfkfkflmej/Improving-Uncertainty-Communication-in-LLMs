@@ -97,7 +97,7 @@ plt.title("Calibration vs Domain Similarity")
 
 
 plt.legend(markerscale=0.5, loc='lower right') # Added markerscale to make legend markers smaller
-plt.savefig("calibration_vs_domain_similarity.png")
+plt.savefig("figures/calibration_vs_domain_similarity.png")
 plt.show()
 
 # Example data (replace with yours)
@@ -148,5 +148,5 @@ plt.title("Discrimination vs Domain Similarity")
 
 
 plt.legend(markerscale=0.5, loc='lower right') # Added markerscale to make legend markers smaller
-plt.savefig("discriminability_vs_domain_similarity.png")
+plt.savefig("figures/discriminability_vs_domain_similarity.png")
 plt.show()
