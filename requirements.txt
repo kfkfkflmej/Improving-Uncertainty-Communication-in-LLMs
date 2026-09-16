@@ -1,0 +1,28 @@
+# Core ML
+torch
+transformers
+accelerate
+bitsandbytes
+peft
+trl
+datasets
+sentence-transformers
+
+# Config management (fine-tuning)
+hydra-core
+omegaconf
+
+# Data & metrics
+pandas
+numpy
+scikit-learn
+matplotlib
+tqdm
+
+# Notebook / API calls
+requests
+jupyter
+
+# NOTE: versions are unpinned. Before submitting or sharing this repo, run
+#   pip freeze > requirements.txt
+# inside your working environment so the exact versions you used are recorded.
