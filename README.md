@@ -102,7 +102,8 @@ export OPENROUTER_API_KEY="your_key_here"
 
 ### Data
 
-<!-- TODO: describe the source datasets here — SimpleQA and NQ-Open — with links, licenses, and how the topic-specific splits (art / geography / science & technology) were derived. -->
+
+For the experiments, we used [SimpleQA](https://arxiv.org/abs/2411.04368) and [NQ-Open](https://arxiv.org/abs/1906.00300) question-answering collections. We used the category label in SimpleQA to group questions according to their domain and produce our fine-tuning and test sets using random sampling. All of the splits are available and paired with the task they were created for.
 
 ---
 
@@ -218,7 +219,7 @@ Bachelor's thesis, IT University of Copenhagen.
 
 Program: Data Science
 
-Supervisor: [Christian Hardmier](https://christianhardmeier.rax.ch/)
+Supervisor: [Christian Hardmeier](https://christianhardmeier.rax.ch/)
 
 
 ## Acknowledgements
